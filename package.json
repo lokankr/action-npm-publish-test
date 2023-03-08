@@ -1,0 +1,24 @@
+{
+  "name": "action-npm-publish-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "mkdir dist && cp index.js dist/",
+    "test": "echo \"Tests passing\" && exit 0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lokankr/action-npm-publish-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lokankr/action-npm-publish-test/issues"
+  },
+  "homepage": "https://github.com/lokankr/action-npm-publish-test#readme"
+}
