@@ -1,4 +1,10 @@
-on: [push]
+name: Release to NPM
+on:
+  pull_request:
+    types:
+      - closed # Only run after PRs have been merged or closed
+    branches:
+      - main # Only run for PRs targeted against main branch
 
 jobs:
   ci:
@@ -15,4 +21,5 @@ jobs:
       - id: foo
         uses: lokankr/action-npm-publish@v2
         with:
-          nodePublishToken: ${{ secrets.NPM_TOKEN }}
+          node-publish-token: ${{ secrets.NPM_TOKEN }}
+          install-command: npm install
