@@ -1,0 +1,25 @@
+name: Release to NPM
+on:
+  pull_request:
+    types:
+      - closed # Only run after PRs have been merged or closed
+    branches:
+      - main # Only run for PRs targeted against main branch
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    name: Release to NPM
+    steps:
+      - id: checkout
+        uses: actions/checkout@v3
+        with:
+          ref: main
+          fetch-depth: 0 # fetch all commits so auto-changelog is correctly generating
+          token: ${{ secrets.BOT_ACCESS_TOKEN }}
+
+      - id: foo
+        uses: lokankr/action-npm-publish@v2
+        with:
+          node-publish-token: ${{ secrets.NPM_TOKEN }}
+          install-command: npm install
